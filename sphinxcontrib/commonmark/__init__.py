@@ -12,7 +12,7 @@ import pycmark
 from docutils import nodes
 from docutils.transforms import Transform
 from pycmark import addnodes
-from pycmark.transforms import LinebreakFilter
+from pycmark.transforms import LinebreakFilter, TightListsCompactor, TightListsDetector
 from sphinx.application import Sphinx
 from sphinx.transforms import SphinxTransform
 
@@ -23,6 +23,8 @@ class CommonMarkParser(pycmark.CommonMarkParser):
     def get_transforms(self) -> List[Transform]:
         transforms = super().get_transforms()
         transforms.remove(LinebreakFilter)
+        transforms.remove(TightListsCompactor)
+        transforms.remove(TightListsDetector)
         return transforms
 
 

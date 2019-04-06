@@ -29,16 +29,16 @@ def test_build(app, status, warning):
 
     # bullet list
     assert ('<ul class="simple">\n'
-            '<li>item1</li>\n'
-            '<li>item2</li>\n'
-            '<li>item3</li>\n'
+            '<li><p>item1</p></li>\n'
+            '<li><p>item2</p></li>\n'
+            '<li><p>item3</p></li>\n'
             '</ul>\n' in content)
 
     # enumerated list
     assert ('<ol class="arabic simple" start="1">\n'
-            '<li>item1</li>\n'
-            '<li>item2</li>\n'
-            '<li>item3</li>\n'
+            '<li><p>item1</p></li>\n'
+            '<li><p>item2</p></li>\n'
+            '<li><p>item3</p></li>\n'
             '</ol>\n' in content)
 
     # code-block
