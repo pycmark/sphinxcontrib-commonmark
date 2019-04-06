@@ -1,6 +1,7 @@
 import os
-from setuptools import find_packages, setup
 from typing import Dict
+
+from setuptools import find_packages, setup
 
 
 def get_long_description():
