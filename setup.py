@@ -2,7 +2,11 @@ import os
 from setuptools import find_packages, setup
 from typing import Dict
 
-long_desc = open('README.md').read()
+
+def get_long_description():
+    """Get long description of the package from README."""
+    with open('README.md') as f:
+        return f.read()
 
 
 def get_version():
@@ -24,7 +28,7 @@ setup(
     author='Takeshi KOMIYA',
     author_email='i.tkomiya@gmail.com',
     description='Yet another commonmark processor for Sphinx',
-    long_description=long_desc,
+    long_description=get_long_description(),
     long_description_content_type='text/markdown',
     classifiers=[
         'Development Status :: 3 - Alpha',
