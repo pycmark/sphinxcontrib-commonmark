@@ -6,6 +6,8 @@
     :license: Apache License 2.0, see LICENSE for details.
 """
 
+import pytest
+
 
 def test_build(app, status, warning):
     app.build()
@@ -51,3 +53,31 @@ def test_build(app, status, warning):
             '<div><p>Of course, you can write quoted text\n'
             'using “&gt;” mark.</p>\n'
             '</div></blockquote>\n' in content)
+
+
+@pytest.mark.sphinx('html', testroot='hardlinebreak')
+def test_hardlinebreak_html(app):
+    app.build()
+
+    content = (app.outdir / 'index.html').text()
+    assert ('<p>Hello markdown world!<br />\n'
+            'hard line<br />\n'
+            'break in Sphinx.</p>' in content)
+
+
+@pytest.mark.sphinx('latex', testroot='hardlinebreak')
+def test_hardlinebreak_latex(app):
+    app.build()
+
+    content = (app.outdir / 'python.tex').text()
+    assert ('Hello markdown world!\\linebreak\n'
+            'hard line\\linebreak\n'
+            'break in Sphinx.\n' in content)
+
+
+@pytest.mark.sphinx('text', testroot='hardlinebreak')
+def test_hardlinebreak_text(app):
+    app.build()
+
+    content = (app.outdir / 'index.txt').text()
+    assert 'Hello markdown world! hard line break in Sphinx.\n' in content
