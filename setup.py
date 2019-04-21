@@ -13,7 +13,7 @@ def get_long_description():
 def get_version():
     """Get version number of the package from version.py without importing core module."""
     package_dir = os.path.abspath(os.path.dirname(__file__))
-    version_file = os.path.join(package_dir, 'sphinxcontrib/qthelp/version.py')
+    version_file = os.path.join(package_dir, 'sphinxcontrib/commonmark/version.py')
 
     namespace: Dict = {}
     with open(version_file, 'rt') as f:
