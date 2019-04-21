@@ -24,7 +24,7 @@ def get_version():
 
 setup(
     name='sphinxcontrib-commonmark',
-    version='0.1.0',
+    version=get_version(),
     url='https://github.com/tk0miya/sphinxcontrib-commonmark/',
     author='Takeshi KOMIYA',
     author_email='i.tkomiya@gmail.com',
